@@ -36,7 +36,20 @@ lennének láthatóak.
     - Feladat módosítása => a tiktároknak meg kell keresni a dolgozót
 
 ## Igényelt üzleti folyamatok
-
+- Online megjelenítés
+- Külön dolgozói és adminisztrátori belépés
+- Feladatok kilistázása => belépés után a feladatok menüpontra kattintva
+- Feladatok hozzáadása: adminisztrátorként => új feladat menüponttal
+- Feladatok törlése: adminisztrátorként => listázás után
+- Feladatok módosítása: adminisztrátorként => listázás után
+- Feladatok megjelölése készként: dolgozóként => listázás után
+- Felület témájának módosítása => beállításokban lenyíló menü
+- Statisztika megjelenítése az elvégzett feladatokról => statisztika menüpont
+- Naptár nézet: adott napra vagy hétre vonatkozó feladatok listázása
+- Feladatok szűrése: dolgozó nevének megadása vagy időpont alapján
+- Értesítés, ha új feladatot írtak ki => a weboldalon egy felugró üzenet
+- Legaktívabb dolgozók megjutalmazása => a profilon jelvénnyel
+- Dolgozók listázása => adminisztrátorként a dolgozók menüponttal
 
 ## A rendszerre vonatkozó szabályok
 
