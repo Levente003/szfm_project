@@ -55,6 +55,12 @@ lennének láthatóak.
 
 
 ## Követelménylista
-
+K01: Webalkalmazás
+K02: Elérhetőség
+K03: Egyidejű használhatóság és feldolgozás
+K04: Felhasználóbarát megjelenítés
+K05: Felhasználó hitelesítése
+K06: Normál válaszidő
+K07: Egyszerű rendszerüzemeltetés
 
 ## Fogalomszótár
