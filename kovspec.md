@@ -29,7 +29,11 @@ lennének láthatóak.
 - lenne naptárnézetben, ahol láthatja a felhasználó feladatait
 
 ## Jelenlegi üzleti folyamatok
-
+- Feladatok nyilvántartása:
+    - Feladatok kiosztása => minden dolgozó papíron kapja meg a teendőit
+    - Feladatok befejezése => az adott sor áthúzása
+    - Befejezett feladatok naplózása => egy közös füzetbe történik
+    - Feladat módosítása => a tiktároknak meg kell keresni a dolgozót
 
 ## Igényelt üzleti folyamatok
 
