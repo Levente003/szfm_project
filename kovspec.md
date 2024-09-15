@@ -3,7 +3,7 @@
 
 ## Jelenlegi helyzet
 
-Jelenleg a cégnél sok az új dolgozó, akik szenvednek a sok kisseb feladat
+Jelenleg a cégnél sok az új dolgozó, akik szenvednek a sok kisebb feladat
 figyelemben tartásával ami rájuk hárul. Ezért jelenleg mindenki kap egy papírt
 amire ki vannak nyomtatva a különböző feladatok amik az adott dolgozóra hárulnak.
 
@@ -12,8 +12,8 @@ jár és elvesztés esetén mindig újranyomtatni ezeket.
 
 ## Vágyálom rendszer
 
-Szeretnénk egy felületett ahol a dolgozók követhetik a cég beli feladataikat és
-esetleg a saját szokásaikat is. Egy játékszerüsített szokáskövetőre gondoltunk,
+Szeretnénk egy felületet ahol a dolgozók követhetik a cégbeli feladataikat és
+esetleg a saját szokásaikat is. Egy játékszerűsített szokáskövetőre gondoltunk,
 ami jutalmazza a betartást (streak-kel, achivement-tel esetleg jelvénnyel), hogy
 idővel rendes szokássá tudjon válni.
 
@@ -21,7 +21,7 @@ Szeretnénk, ha...
 - a felületre be lehetne lépni és csak a belépett személy feladatai
 lennének láthatóak.
 - lenne dashboard, ahol
-  - addhat hozzá feladatott
+  - adhat hozzá feladatott
   - törölhet
   - módosíthat
   - megjelölheti készként a feladatokat
