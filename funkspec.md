@@ -23,7 +23,6 @@ Hozzárendelés:
 Hitelesítés jelenleg nincs
 
 ## Igényelt üzleti folyamatok
-
 - Dolgozói és adminisztrátori belépés:
     - oldal megnyitása -> megfelelő email-cím jelszó páros kitöltése -> rendszer általi hitelesítés -> amennyiben a jogosultság igazolt: alkalmazás betöltése a megfelelő szerepkörrel
             -> amennyiben a hitelesítés sikertelen -> visszalépés a bejelentkezési felületre hibaüzenettel
@@ -32,6 +31,7 @@ Hitelesítés jelenleg nincs
     - belépés -> navigálás dashboardra -> új feladat hozzáadása -> feladat részleteinek kitöltése és felvétele (dolgozó vagy adminisztrátor által)
 
 - Mozgatás: a dashboardon lévő feladaton "szerkesztés"-re kattintás -> a menüből a mozgatás kiválasztása -> céloszlop kiválasztása -> "megerősítés"-re nyomva végrehajtás
+
 
 ### Adminisztrátor által elérhető funkciók
 - Minden dolgozó kilistázása és profilok megnézése
