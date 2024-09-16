@@ -55,6 +55,20 @@ lennének láthatóak.
 
 
 ## Követelménylista
-
+### Szereplők:
+-SZ01: Felhasználó (dolgozók)
+-SZ02: Admin (menedzser)
+### K01: Webalkalmazás
+### K02: Elérhetőség
+### K03: Egyidejű használhatóság és feldolgozás
+### K04: Felhasználóbarát megjelenítés
+### K05: Felhasználó hitelesítése
+### K06: Normál válaszidő
+### K07: Egyszerű rendszerüzemeltetés
+### K08: Naptárfelület
+### K09: Rendszertémák (pl. sötét és világos)
 
 ## Fogalomszótár
+Dolgozó: A rendszer fő felhasználói, a cég alkalmazottai
+Válaszidő: A felhasználó által adott bemenetre rendszertől kapott válasz érkezési ideje
+Dashboard: Egy táblázat a horizontális tengelyén a feladatok állapotaival (pl. hozzárendelt, folyamatban, kész), vertikális tengelyén a hozzárendelt feladatokkal
