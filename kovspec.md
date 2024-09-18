@@ -17,23 +17,20 @@ esetleg a saját szokásaikat is. Egy játékszerűsített szokáskövetőre gon
 ami jutalmazza a betartást (streak-kel, achivement-tel esetleg jelvénnyel), hogy
 idővel rendes szokássá tudjon válni.
 
-Szeretnénk, ha...
-- a felületre be lehetne lépni és csak a belépett személy feladatai
-lennének láthatóak.
-- lenne dashboard, ahol
-  - adhat hozzá feladatott
-  - törölhet
-  - módosíthat
-  - megjelölheti készként a feladatokat
-- lennének témái a felületnek a beállításokban.
-- lenne naptárnézetben, ahol láthatja a felhasználó feladatait
+Szeretnénk, ha a felületre be lehetne lépni és csak a belépett személy feladatai
+lennének láthatóak számára. 
+Lenne dashboard, ahol a felhasználó megnézheti a saját feladatait adhat hozzá saját feladatot, amit törölhet, módosíthat, megjelölheti készként. 
+Láthatja és készként megjelölheti az adminisztrátor által rábízott feladatoz. 
+Az admin kereshet a felhasználók közt, megnézheti a felhasználókhoz rendelt feladatok listáját, új feladatokat hozhat létre, módosíthatja a feladatokat, törölhet feladatokat
+Szeretnénk továbbá, ha lennének témái a felületnek a beállításokban.
+Naptár nézet, ahol láthatja a felhasználó feladatait
 
 ## Jelenlegi üzleti folyamatok
 - Feladatok nyilvántartása:
     - Feladatok kiosztása => minden dolgozó papíron kapja meg a teendőit
     - Feladatok befejezése => az adott sor áthúzása
     - Befejezett feladatok naplózása => egy közös füzetbe történik
-    - Feladat módosítása => a tiktároknak meg kell keresni a dolgozót
+    - Feladat módosítása => a titkároknak személyesen meg kell keresni a dolgozót
 
 ## Igényelt üzleti folyamatok
 - Online megjelenítés
@@ -52,23 +49,26 @@ lennének láthatóak.
 - Dolgozók listázása => adminisztrátorként a dolgozók menüponttal
 
 ## A rendszerre vonatkozó szabályok
-
+  - Adatkezelésre vonatkozó GDPR jogszabályok
+  - Copyright jogok
+  - A cégre vonatkozó hatósági, országos jogszabályok
+  - Céges házirend
 
 ## Követelménylista
-### Szereplők:
--SZ01: Felhasználó (dolgozók)
--SZ02: Admin (menedzser)
-### K01: Webalkalmazás
-### K02: Elérhetőség
-### K03: Egyidejű használhatóság és feldolgozás
-### K04: Felhasználóbarát megjelenítés
-### K05: Felhasználó hitelesítése
-### K06: Normál válaszidő
-### K07: Egyszerű rendszerüzemeltetés
-### K08: Naptárfelület
-### K09: Rendszertémák (pl. sötét és világos)
+  - Szereplők:
+    - SZ01: Felhasználó (dolgozók)
+    - SZ02: Admin (menedzser)
+  - K01: Webalkalmazás
+  - K02: Elérhetőség
+  - K03: Egyidejű használhatóság és feldolgozás
+  - K04: Felhasználóbarát megjelenítés
+  - K05: Felhasználó hitelesítése
+  - K06: Normál válaszidő
+  - K07: Egyszerű rendszerüzemeltetés
+  - K08: Naptárfelület
+  - K09: Rendszertémák (pl. sötét és világos)
 
 ## Fogalomszótár
-Dolgozó: A rendszer fő felhasználói, a cég alkalmazottai
-Válaszidő: A felhasználó által adott bemenetre rendszertől kapott válasz érkezési ideje
-Dashboard: Egy táblázat a horizontális tengelyén a feladatok állapotaival (pl. hozzárendelt, folyamatban, kész), vertikális tengelyén a hozzárendelt feladatokkal
+  - Dolgozó: A rendszer fő felhasználói, a cég alkalmazottai
+  - Válaszidő: A felhasználó által adott bemenetre rendszertől kapott válasz érkezési ideje
+  - Dashboard: Egy táblázat a horizontális tengelyén a feladatok állapotaival (pl. hozzárendelt, folyamatban, kész), vertikális tengelyén a hozzárendelt feladatokkal
