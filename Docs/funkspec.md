@@ -144,6 +144,41 @@ Adminisztrátornak joga van feladatokat törölni.
 2. Törlés gombra kattintva a feladat törlésre kerül.
 
 
+### Dolgozó
+
+#### UC01: Feladatok kilistázása
+A felhasználónak joga van kilistázni az ő hozzá rendelt feladatokat, és az ö általa
+felvett feladatokat.
+
+1. Az dolgozói felületen feladatok listája fülre navigálás, ahol megjelenik a lista
+2. A lista tetején lehetséges szűrni dátum vagy státusz alapján.
+
+#### UC02: Feladatok naptárnézeten történó megtekintése
+A felhasználónak joga van naptárnézetben kilistázni az ő hozzá rendelt feladatokat,
+és az ö általa felvett feladatokat.
+
+1. Az dolgozói felületen naptárnézet fülre navigálás
+2. naptárnézet megjelenik
+
+#### UC03: Feladat létrehozás
+A felhasználónak joga van feladatot felvenni magának.
+
+1. Az feladatok felületen a feladat hozzáadása gombra navigál.
+2. A feladat létrehozásához meg kell adni a feladat nevét, leírását és határidejét.
+3. Mentés gombra kattintva a feladat létrehozásra kerül.
+
+#### UC04: Feladat megjelölése készként
+A felhasználónak joga van megjelölni egy ő hozzá rendelt vagy ö általa
+felvett feladatot.
+
+1. A felhasználónak adott feladtra kell navigálni.
+2. A Kész gombra kattintás után a feladat állapota módosul
+
+#### UC05: Statisztika megtekintése
+A felhasználónak joga van megtekinteni a személyes statisztikáját
+
+1. Az dolgozói felületen a statisztika fülre navigál
+2. ahol megjelennek a felhasználó statisztikái (pl.: teljesített feladatok száma, hátralévő feladatok száma)
 
 
 ## Képernyőtervek
