@@ -77,6 +77,51 @@ Hitelesítés jelenleg nincs
 
 ## Követelménylista
 ## Használati esetek
+
+### Adminisztrátor
+
+#### UC01: Dolgozók kilistázása
+Adminisztrátornak joga van az összes dolgozót kilistázni és statisztikájukat megjeleníteni.
+
+1. Admin felületen a dolgozók listája fülre navigálás, ahol megjelenik a lista.
+2. A megjelent listán dolgozó kiválasztása statisztikájának megtekintéséhez.
+
+#### UC02: Feladatok kilistázása
+Adminisztrátornak joga van az összes feladatot kilistázni és részleteiket és státuszukat megtekinteni. 
+
+1. Admin felületen a feladatok listája fülre navigálás, ahol megjelenik a lista.
+2. A lista tetején lehetséges szűrni dátum, dolgozó vagy státusz alapján.
+
+#### UC03: Feladat létrehozás
+Adminisztrátornak joga van feladatokat létrehozni.
+
+1. Admin felületen a feladat létrehozás fülre navigál.
+2. A feladat létrehozásához meg kell adni a feladat nevét, leírását és határidejét.
+3. Mentés gombra kattintva a feladat létrehozásra kerül.
+
+#### UC04: Feladathoz dolgozó rendelése
+Adminisztrátornak joga van feladatokathoz dolgozót rendelni.
+
+1. Adminnak adott feladtra kell navigálni.
+2. A feladathoz rendelés gombra kattintva ki kell választani egy dolgozót.
+3. Mentés gombra kattintva a dolgozó a feladathoz van rendelve.
+
+#### UC05: Feladat módosítása
+Adminisztrátornak joga van feladatokat módosítani.
+
+1. Adminnak adott feladtra kell navigálni.
+2. A feladat módosítás gombra kattintás után át lehet írni a módosítandó részletet.
+3. Mentés gombra kattintva a feladat módosításra kerül.
+
+#### UC06: Feladat törlés
+Adminisztrátornak joga van feladatokat törölni.
+
+1. Adminnak adott feladtra kell navigálni.
+2. Törlés gombra kattintva a feladat törlésre kerül.
+
+
+
+
 ## Képernyőtervek
 ## Forgatókönyvek
 ## Funkció – követelmény megfeleltetés
