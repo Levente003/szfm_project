@@ -33,3 +33,16 @@
 ### SQL Séma
 
 ![SQL séma](resources/SQL_Sema.png)
+
+
+### Users tábla
+
+A Users tábla tárolja a felhasználók adatait .
+
+| Oszlop név | Adat típus | Not null | Leírás                   |
+|------------|------------|----------|--------------------------|
+| UserId     | Integer    |    true      | Felhasználó azonosítója. |
+| Email      | VARCHAR    |          | Felhasználó email címe.  |
+| Username   | VARCHAR    |    true       | Felhasználó neve.        |
+| Password   | VARCHAR    |    true       | Felhasználó jelszava     |
+| IsAdmin    | VARCHAR    |          | Felhasználó admin-e?     |
