@@ -25,3 +25,7 @@
 ## Felülettel szemben támasztott követelmények
 
 ## Adatbázis terv
+
+### Adatbázis modell
+
+![Adatbázis modell](resources/Adatbazismodell.png)
