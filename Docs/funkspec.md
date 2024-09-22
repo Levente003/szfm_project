@@ -74,6 +74,10 @@ Hitelesítés jelenleg nincs
 
 
 ## A rendszerre vonatkozó szabályok
+  - Adatkezelésre vonatkozó GDPR jogszabályok
+  - Copyright jogok
+  - A cégre vonatkozó hatósági, országos jogszabályok
+  - Céges házirend
 
 ## Követelménylista
   - Szereplők:
