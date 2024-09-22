@@ -29,3 +29,7 @@
 ### Adatbázis modell
 
 ![Adatbázis modell](resources/Adatbazismodell.png)
+
+### SQL Séma
+
+![SQL séma](resources/SQL_Sema.png)
