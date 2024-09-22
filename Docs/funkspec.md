@@ -74,8 +74,32 @@ Hitelesítés jelenleg nincs
 
 
 ## A rendszerre vonatkozó szabályok
+  - Adatkezelésre vonatkozó GDPR jogszabályok
+  - Copyright jogok
+  - A cégre vonatkozó hatósági, országos jogszabályok
+  - Céges házirend
 
 ## Követelménylista
+  - Szereplők:
+    - SZ01: Felhasználó (dolgozók)
+    - SZ02: Admin (menedzser)
+  - K01: Webalkalmazás
+  - K02: Elérhetőség
+  - K03: Egyidejű használhatóság és feldolgozás
+  - K04: Felhasználóbarát megjelenítés
+    - A webalkalmazás a felhasználó számára könnyen navigálható, minden oldal
+    amihez van hozzáférése a felhasználónak elérhető a navigációs menüben
+  - K05: Felhasználó hitelesítése
+    - A felhasználó az email címe és a jelszava segítségével bejelentkezhet.
+  - K06: Normál válaszidő
+  - K07: Egyszerű rendszerüzemeltetés
+  - K08: Naptárfelület
+    - A felhasználóknak van egy naptárja, ahol láthatják,
+    melyik feladatokat, mikorra kell teljesíteni.
+  - K09: Rendszertémák (pl. sötét és világos)
+    - A webalkalmazásnak vannak különböző megjelenési témái amik között a
+    felhasználó válthat a beállításokban.
+
 ## Használati esetek
 
 ### Adminisztrátor
