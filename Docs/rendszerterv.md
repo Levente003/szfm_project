@@ -46,3 +46,20 @@ A Users tábla tárolja a felhasználók adatait .
 | Username   | VARCHAR    |    true       | Felhasználó neve.        |
 | Password   | VARCHAR    |    true       | Felhasználó jelszava     |
 | IsAdmin    | VARCHAR    |          | Felhasználó admin-e?     |
+
+
+### Tasks tábla
+
+A Tasks tábla a feladatok adait tárolja.
+
+| Oszlop név | Adat típus | Not null | Leírás                   |
+|------------|------------|----------|--------------------------|
+| TaskID    | Integer    |    true      | Feladat azonosítója. |
+|  TaskName  |  VARCHAR |          |  Feladat neve. |
+|  TaskDescription  | VARCHAR   |          |  Feladat leírása.   |
+|  DueDate |  DATE  |          |  Feladat teljesítési határideje.   |
+|   IsPastDueDate | BOOLEAN   |          | Feladatnak elmúlt-e a határideje.    |
+|   IsDone  |  BOOLEAN    |          | Feladat kész e van.    |
+|   AssignedUserId | Integer   |          |   Feladathoz rendelt felhasználó  |
+|   CreatedBy | Integer    | true   | Feladatot létrehozó felhasználó.    |
+|   LastModification |  DATE  |          | Feladat utólsó módosításának dátuma.    |
