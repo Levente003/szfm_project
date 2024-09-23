@@ -25,6 +25,7 @@
 ## Felülettel szemben támasztott követelmények
 
 ## Adatbázis terv
+![Absztrakt adatbázis terv](resources\domain_model.png)
 
 ### Adatbázis modell
 
