@@ -24,6 +24,9 @@
 
 ## Felülettel szemben támasztott követelmények
 
+## Rendszer architektúra modell
+![Rendszer architektúra modell](resources/system_architecture.png)
+
 ## Adatbázis terv
 ![Absztrakt adatbázis terv](resources\domain_model.png)
 
