@@ -22,5 +22,18 @@ class UserDAO extends IUserDAO{
         }
         return null;
     }
+
+    async deleteUser(userId) {
+        const user = await User.findByPk(userId);
+        if (user) {
+            await user.destroy();
+            return true;
+        }
+        return false;
+    }
+
+    async getAllUsers() {
+        return await User.findAll();
+    }
 }
 module.exports = new UserDAO();
