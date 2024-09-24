@@ -17,7 +17,22 @@ class TaskDAO extends ITaskDAO {
         }
         return null;
     }
+    async deleteTask(taskId) {
+        const task = await Task.findByPk(taskId);
+        if (task) {
+            await task.destroy();
+            return true;
+        }
+        return false;
+    }
 
+    async getAllTasks() {
+        return await Task.findAll();
+    }
+
+    async getTasksByUserId(userId) {
+        return await Task.findAll({ where: { assigned_user_ID: userId } });
+    }
 }
 
 module.exports = new TaskDAO();
