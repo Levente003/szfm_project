@@ -14,6 +14,7 @@ const sequelize : Sequelize = require('../Data_access_layer/database');
 import UserDAO from "../Data_access_layer/DAO/UserDAO";
 import { GetUserID, Login, Logout } from "./AuthenticationHandler";
 import { UserDataValues } from "../Data_access_layer/models/ModelTypes";
+import { CreateUser, DeleteUser, GetAllUsers, UpdateUser } from "./UserHandler";
 
 
 
@@ -39,6 +40,16 @@ sequelize.sync().then(async () =>{
     application.post("/login",Login);
 
     application.post("/logout",Logout);
+
+
+
+    application.put("/createUser",CreateUser);
+
+    application.post("/updateUser",UpdateUser);
+
+    application.delete("/deleteUser",DeleteUser);
+
+    application.get("/getAllUsers",GetAllUsers);
     
     
     application.listen(port, () => {
