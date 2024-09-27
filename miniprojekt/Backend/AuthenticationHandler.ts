@@ -45,7 +45,8 @@ export async function Logout(req:Request, res: Response){
 }
 
 export async function GetCurrentUser(req: Request, res : Response){
-    let user = GetAuthenticatedUser(req,res);
+    let user = await GetAuthenticatedUser(req,res);
+
 
     if(user == null){res.status(400).send("Invalid token"); return;}
     else{res.status(200).json({user: user}); return;}
@@ -64,7 +65,7 @@ export async function GetUserID(req:Request, res: Response){
 
 export async function GetUserByToken(token : string) : Promise<UserDataValues|null> {
     if(Tokens.has(token)){
-        let user : UserDataValues = (await UserDAO.getUserById(Tokens[token]))?.dataValues;
+        let user : UserDataValues = (await UserDAO.getUserById(Tokens.get(token)))?.dataValues;
         return user;
     }
     else{

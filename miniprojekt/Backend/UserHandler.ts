@@ -5,7 +5,8 @@ import { GetAuthenticatedUser, IsAuthenticatedUserAdmin } from "./Authentication
 
 export async function CreateUser(req:Request, res: Response){
 
-    if(!IsAuthenticatedUserAdmin(req,res)){
+    if(!(await IsAuthenticatedUserAdmin(req,res))){
+        console.log("Unauthorized")
         res.status(403).send("No permission");
         return;
     }
@@ -41,7 +42,7 @@ export async function CreateUser(req:Request, res: Response){
 }
 
 export async function DeleteUser(req:Request, res: Response) {
-    if(!IsAuthenticatedUserAdmin(req,res)){
+    if(!(await IsAuthenticatedUserAdmin(req,res))){
         res.status(403).send("No permission");
         return;
     }
@@ -65,12 +66,16 @@ export async function DeleteUser(req:Request, res: Response) {
 }
 
 export async function UpdateUser(req:Request, res: Response) {
-    const {userID,email,password,name,isAdmin} = req.body;
+    let {userID,email,password,name,isAdmin} = req.body;
 
     let authenticatedUser = await GetAuthenticatedUser(req,res);
     if(authenticatedUser == null || (!authenticatedUser?.admin && authenticatedUser?.user_ID != userID)){
         res.status(403).send("No permission");
         return;
+    }
+
+    if(!authenticatedUser?.admin){
+        isAdmin = false;
     }
 
 
@@ -101,7 +106,7 @@ export async function UpdateUser(req:Request, res: Response) {
 }
 
 export async function GetAllUsers(req:Request, res: Response) {
-    if(!IsAuthenticatedUserAdmin(req,res)){
+    if(!(await IsAuthenticatedUserAdmin(req,res))){
         res.status(403).send("No permission");
         return;
     }

@@ -4,7 +4,7 @@ import TaskDAO from "../Data_access_layer/DAO/TaskDAO";
 import { GetAuthenticatedUser, IsAuthenticatedUserAdmin } from "./AuthenticationHandler";
 
 export async function CreateTask(req:Request, res: Response) {
-    if(!IsAuthenticatedUserAdmin(req,res)){
+    if(!(await IsAuthenticatedUserAdmin(req,res))){
         res.status(403).send("No permission");
         return;
     }
@@ -33,7 +33,7 @@ export async function CreateTask(req:Request, res: Response) {
 }
 
 export async function DeleteTask(req:Request, res: Response) {
-    if(!IsAuthenticatedUserAdmin(req,res)){
+    if(!(await IsAuthenticatedUserAdmin(req,res))){
         res.status(403).send("No permission");
         return;
     }
@@ -50,7 +50,7 @@ export async function DeleteTask(req:Request, res: Response) {
 }
 
 export async function UpdateTask(req:Request, res: Response) {
-    if(!IsAuthenticatedUserAdmin(req,res)){
+    if(!(await IsAuthenticatedUserAdmin(req,res))){
         res.status(403).send("No permission");
         return;
     }
@@ -81,7 +81,7 @@ export async function UpdateTask(req:Request, res: Response) {
 }
 
 export async function GetAllTasks(req:Request, res: Response) {
-    if(!IsAuthenticatedUserAdmin(req,res)){
+    if(!(await IsAuthenticatedUserAdmin(req,res))){
         res.status(403).send("No permission");
         return;
     }
@@ -110,7 +110,7 @@ export async function GetUserTasks(req:Request, res: Response) {
 }
 
 export async function GetTaskByID(req:Request, res: Response) {
-    if(!IsAuthenticatedUserAdmin(req,res)){
+    if(!(await IsAuthenticatedUserAdmin(req,res))){
         res.status(403).send("No permission");
         return;
     }
