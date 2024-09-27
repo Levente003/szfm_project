@@ -15,6 +15,7 @@ import UserDAO from "../Data_access_layer/DAO/UserDAO";
 import { GetUserID, Login, Logout } from "./AuthenticationHandler";
 import { UserDataValues } from "../Data_access_layer/models/ModelTypes";
 import { CreateUser, DeleteUser, GetAllUsers, UpdateUser } from "./UserHandler";
+import { CompleteTask, CreateTask, DeleteTask, GetAllTasks, GetTaskByID, GetUserTasks, UpdateTask } from "./TaskHandler";
 
 
 
@@ -50,6 +51,23 @@ sequelize.sync().then(async () =>{
     application.delete("/deleteUser",DeleteUser);
 
     application.get("/getAllUsers",GetAllUsers);
+
+
+
+    application.put("/createTask",CreateTask);
+
+    application.post("/updateTask",UpdateTask);
+
+    application.delete("/deleteTask",DeleteTask);
+
+    application.get("/getAllTasks",GetAllTasks);
+
+    application.get("/getUserTasks", GetUserTasks);
+
+    application.get("/getTaskByID",GetTaskByID);
+
+    application.post("/completeTask",CompleteTask);
+
     
     
     application.listen(port, () => {

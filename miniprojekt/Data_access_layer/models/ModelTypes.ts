@@ -9,10 +9,10 @@ export type UserDataValues = {
 }
 
 export type TaskDataValues = {
-    ID : number,
+    ID? : number,
     name : string,
-    description : string,
+    description? : string | null,
     deadline : Date,
-    completion_time : Date,
-    assigned_user_ID : number
+    completion_time? : Date | null,
+    assigned_user_ID? : number
 }
