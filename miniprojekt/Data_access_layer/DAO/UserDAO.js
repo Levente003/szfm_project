@@ -11,6 +11,14 @@ class UserDAO extends IUserDAO{
         return await User.findByPk(userId);
     }
 
+    async getUserByEmail(email) {
+        return await User.findOne({
+            where: {
+                email : email
+            },
+        });
+    }
+
     async createUser(userData) {
         return await User.create(userData);
     }

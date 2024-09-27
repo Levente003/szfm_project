@@ -9,6 +9,15 @@ class IUserDAO {
     }
 
     /**
+     * Retrieve a user by their email.
+     * @param {number} email - The email of the user.
+     * @returns {Promise<Object|null>} - The user object or null if not found.
+     */
+    getUserByEmail(email) {
+        throw new Error("Method not implemented.");
+    }
+
+    /**
      * Create a new user.
      * @param {Object} user - The user object containing user details.
      * @returns {Promise<Object>} - The created user object.
