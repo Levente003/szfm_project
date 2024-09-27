@@ -1,8 +1,16 @@
 import {Request,Response} from "express";
 import UserDAO from "../Data_access_layer/DAO/UserDAO";
 import { UserDataValues } from "../Data_access_layer/models/ModelTypes";
+import { GetAuthenticatedUser, IsAuthenticatedUserAdmin } from "./AuthenticationHandler";
 
 export async function CreateUser(req:Request, res: Response){
+
+    if(!IsAuthenticatedUserAdmin(req,res)){
+        res.status(403).send("No permission");
+        return;
+    }
+
+
     const {email, password, name, isAdmin} = req.body;
 
     if(email == null || email == ""){
@@ -33,6 +41,12 @@ export async function CreateUser(req:Request, res: Response){
 }
 
 export async function DeleteUser(req:Request, res: Response) {
+    if(!IsAuthenticatedUserAdmin(req,res)){
+        res.status(403).send("No permission");
+        return;
+    }
+
+
     const {userID} = req.body;
 
     if(userID == -1){
@@ -52,6 +66,15 @@ export async function DeleteUser(req:Request, res: Response) {
 
 export async function UpdateUser(req:Request, res: Response) {
     const {userID,email,password,name,isAdmin} = req.body;
+
+    let authenticatedUser = await GetAuthenticatedUser(req,res);
+    if(authenticatedUser == null || (!authenticatedUser?.admin && authenticatedUser?.user_ID != userID)){
+        res.status(403).send("No permission");
+        return;
+    }
+
+
+    
 
     let userData : UserDataValues = {
         email : email,
@@ -78,6 +101,12 @@ export async function UpdateUser(req:Request, res: Response) {
 }
 
 export async function GetAllUsers(req:Request, res: Response) {
+    if(!IsAuthenticatedUserAdmin(req,res)){
+        res.status(403).send("No permission");
+        return;
+    }
+
+
     let result : UserDataValues[] = (await UserDAO.getAllUsers()).map(x => x.dataValues);
 
     res.status(200).json({

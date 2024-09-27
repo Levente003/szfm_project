@@ -44,6 +44,13 @@ export async function Logout(req:Request, res: Response){
     res.status(200).send("Successfully logged out!");
 }
 
+export async function GetCurrentUser(req: Request, res : Response){
+    let user = GetAuthenticatedUser(req,res);
+
+    if(user == null){res.status(400).send("Invalid token"); return;}
+    else{res.status(200).json({user: user}); return;}
+}
+
 export async function GetUserID(req:Request, res: Response){
     const token = req.headers.authorization?.replace("Bearer ","");
 
@@ -67,4 +74,29 @@ export async function GetUserByToken(token : string) : Promise<UserDataValues|nu
 
 export function GetUserIDByToken(token:string) : number|undefined{
     return Tokens.get(token);
+}
+
+
+export async function GetAuthenticatedUser(req:Request, res: Response) : Promise<UserDataValues|null>{
+    const token = req.headers.authorization?.replace("Bearer ","");
+
+    if(token == null){return null}
+
+    const user = await GetUserByToken(token);
+
+    if(user == null){return null;}
+    
+    return user;
+}
+
+export async function IsAuthenticatedUserAdmin(req:Request, res: Response) : Promise<boolean>{
+    const token = req.headers.authorization?.replace("Bearer ","");
+
+    if(token == null){return false}
+
+    const user = await GetUserByToken(token);
+
+    if(user == null){return false;}
+    
+    return user.admin;
 }

@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 const sequelize : Sequelize = require('../Data_access_layer/database');
 import UserDAO from "../Data_access_layer/DAO/UserDAO";
-import { GetUserID, Login, Logout } from "./AuthenticationHandler";
+import { GetCurrentUser, GetUserID, Login, Logout } from "./AuthenticationHandler";
 import { UserDataValues } from "../Data_access_layer/models/ModelTypes";
 import { CreateUser, DeleteUser, GetAllUsers, UpdateUser } from "./UserHandler";
 import { CompleteTask, CreateTask, DeleteTask, GetAllTasks, GetTaskByID, GetUserTasks, UpdateTask } from "./TaskHandler";
@@ -41,6 +41,8 @@ sequelize.sync().then(async () =>{
     application.post("/login",Login);
 
     application.post("/logout",Logout);
+
+    application.get("/currentUser",GetCurrentUser);
 
 
 

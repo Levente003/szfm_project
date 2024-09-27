@@ -1,9 +1,14 @@
 import {Request,Response} from "express";
-import UserDAO from "../Data_access_layer/DAO/TaskDAO";
 import { TaskDataValues } from "../Data_access_layer/models/ModelTypes";
 import TaskDAO from "../Data_access_layer/DAO/TaskDAO";
+import { GetAuthenticatedUser, IsAuthenticatedUserAdmin } from "./AuthenticationHandler";
 
 export async function CreateTask(req:Request, res: Response) {
+    if(!IsAuthenticatedUserAdmin(req,res)){
+        res.status(403).send("No permission");
+        return;
+    }
+
     const {name, description, deadline, assigned_user_ID} = req.body;
 
     if(name == null || name == ""){res.status(400).send("Task name is empty"); return;}
@@ -28,6 +33,10 @@ export async function CreateTask(req:Request, res: Response) {
 }
 
 export async function DeleteTask(req:Request, res: Response) {
+    if(!IsAuthenticatedUserAdmin(req,res)){
+        res.status(403).send("No permission");
+        return;
+    }
     const {taskID} = req.body;
 
     let result = TaskDAO.deleteTask(taskID);
@@ -41,6 +50,10 @@ export async function DeleteTask(req:Request, res: Response) {
 }
 
 export async function UpdateTask(req:Request, res: Response) {
+    if(!IsAuthenticatedUserAdmin(req,res)){
+        res.status(403).send("No permission");
+        return;
+    }
     const {taskID,name, description, deadline, assigned_user_ID} = req.body;
 
     let task : TaskDataValues = (await TaskDAO.getTaskById(taskID))?.dataValues;
@@ -68,6 +81,10 @@ export async function UpdateTask(req:Request, res: Response) {
 }
 
 export async function GetAllTasks(req:Request, res: Response) {
+    if(!IsAuthenticatedUserAdmin(req,res)){
+        res.status(403).send("No permission");
+        return;
+    }
     let result : TaskDataValues[] = (await TaskDAO.getAllTasks()).map(x => x.dataValues);
 
     res.status(200).json({
@@ -76,7 +93,15 @@ export async function GetAllTasks(req:Request, res: Response) {
 }
 
 export async function GetUserTasks(req:Request, res: Response) {
+
     const {userID} = req.body;
+
+    let authenticatedUser = await GetAuthenticatedUser(req,res);
+    if(authenticatedUser == null || (!authenticatedUser?.admin && authenticatedUser?.user_ID != userID)){
+        res.status(403).send("No permission");
+        return;
+    }
+
     let result : TaskDataValues[] = (await TaskDAO.getTasksByUserId(userID)).map(x => x.dataValues);
 
     res.status(200).json({
@@ -85,6 +110,11 @@ export async function GetUserTasks(req:Request, res: Response) {
 }
 
 export async function GetTaskByID(req:Request, res: Response) {
+    if(!IsAuthenticatedUserAdmin(req,res)){
+        res.status(403).send("No permission");
+        return;
+    }
+
     const {taskID} = req.body;
     let result : TaskDataValues = (await TaskDAO.getTaskById(taskID))?.dataValues;
 
@@ -99,6 +129,12 @@ export async function GetTaskByID(req:Request, res: Response) {
 export async function CompleteTask(req:Request, res: Response) {
     const {taskID} = req.body;
     let task : TaskDataValues = (await TaskDAO.getTaskById(taskID))?.dataValues;
+
+    let authenticatedUser = await GetAuthenticatedUser(req,res);
+    if(authenticatedUser == null || (!authenticatedUser?.admin && authenticatedUser?.user_ID != task.assigned_user_ID)){
+        res.status(403).send("No permission");
+        return;
+    }
 
     if(task == null){res.status(400).send("Invalid Task id");}
     else if(task.completion_time == null){
