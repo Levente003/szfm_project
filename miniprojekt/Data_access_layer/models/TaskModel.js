@@ -29,7 +29,7 @@ const Task = sequelize.define('Task', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'User', // Reference the User model
+            model: 'Users', // Reference the User model
             key: 'user_ID', // Foreign key field in User
         },
     },
