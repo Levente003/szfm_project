@@ -1,0 +1,32 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    border: 5px solid black;
+}
+
+.login {
+    text-align: center;
+}
+
+.flex-container > div {
+    margin: 10px;
+    display: inline;
+}
+
+form > div {
+    margin: 10px;
+    display: block;
+}
+
+
+h1 {
+    display: inline-block;
+    text-align: center;
+}
+/*only for pattern testing*//*TODO: remove after testing*/
+input:valid {
+    color: goldenrod;
+    font-weight: bolder;
+    /*background-color: aqua;*/
+}

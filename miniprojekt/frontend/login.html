@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="themeBase.css">
+    <link rel="stylesheet" href="themeLight.css">
+</head>
+<body>
+    <div class="flex-container login">
+        <div>
+            <h1>Task Tracker</h1>
+        </div>
+        <form id="login-form">
+            <div>
+                <label for="emailField">Email:</label>
+                <input type="text" id="emailField" pattern="(admin|.+@.+\..+)" size="30" required />
+            </div>
+            <div>
+                <label for="passwordField">Password:</label>
+                <input type="password" id="passwordField">
+            </div>
+            <div><input type="button" id="login-btn" value="Login"></div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function() {
+            const email = document.getElementById('emailField').value;
+            const password = document.getElementById('passwordField').value;
+
+            const reqHeaders = new Headers();
+            reqHeaders.append("Content-Type", "application/json")
+            
+
+            const raw = JSON.stringify({
+            "email": email,
+            "password": password
+            });
+
+            const reqOptions = {
+                method: "POST",
+                headers: reqHeaders,
+                body: raw,
+                redirect: "follow"
+            };
+            console.log(reqOptions)
+
+            fetch("http://localhost:3000/login", reqOptions)
+            .then((response) => {if(response.ok == true){
+                console.log(response);
+
+                return response.text();
+            }})
+            .then((result) => {
+                console.log(result);
+                return result.substr(10,36);
+            })
+            .then(a => {if (email == 'admin') {
+                
+            } else {
+                
+            }})
+            .catch((error) => console.error(error));
+            
+            
+
+            
+        })
+    </script>
+</body>
+</html>
