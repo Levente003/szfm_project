@@ -1,7 +1,15 @@
-* {
+body {
     background-color: aliceblue;
 }
 
 input {
     background-color: white;
+}
+
+.flex-container-row {
+    background-color: lightgray;
+}
+
+div > nav.flex-container-col {
+    background-color: lightgray;
 }

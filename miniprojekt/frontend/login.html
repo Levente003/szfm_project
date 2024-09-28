@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="themeLight.css">
 </head>
 <body>
-    <div class="flex-container login">
+    <div class="flex-container-col login">
         <div>
             <h1>Task Tracker</h1>
         </div>
@@ -26,6 +26,9 @@
     </div>
     <script>
         document.getElementById('login-btn').addEventListener('click', function() {
+            const url_string = window.location.href;
+            const url = new URL(url_string);
+            
             const email = document.getElementById('emailField').value;
             const password = document.getElementById('passwordField').value;
 
@@ -56,10 +59,11 @@
                 console.log(result);
                 return result.substr(10,36);
             })
-            .then(a => {if (email == 'admin') {
-                
+            .then(token => {if (email == 'admin') {
+                let new_url_string = url_string.substring(0,url_string.lastIndexOf("/")+1).concat("admin-tasks.html");
+                window.location.href = new_url_string.concat("?token=",token)
             } else {
-                
+                //TODO
             }})
             .catch((error) => console.error(error));
             

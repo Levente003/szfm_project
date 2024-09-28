@@ -1,7 +1,31 @@
-.flex-container {
+/** {
+    border: 1px solid red;
+}*/
+
+.flex-container-col {
     display: flex;
     flex-direction: column;
     align-self: center;
+}
+
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+
+}
+.flex-container-row > div {
+    justify-self: flex-end;;
+}
+
+div > nav.flex-container-col {
+    width: 20%;
+    background-color: lightgray;
+}
+
+nav.flex-container-col > div {
+    padding: 10px;
 }
 
 .login {

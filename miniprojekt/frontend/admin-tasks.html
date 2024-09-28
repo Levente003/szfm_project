@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker - Admin - Tasks</title>
+    <link rel="stylesheet" href="themeBase.css">
+    <link rel="stylesheet" href="themeLight.css">
+</head>
+<body>
+    <div class="flex-container-row">
+        <h1>Task Tracker</h1>
+        <div>Logged in as: Administrator</div>
+        <div></div>
+        <div id="logout-btn">Logout</div>
+    </div>
+    <div>
+        <nav class="flex-container-col">
+            <div class="current-page">Tasks</div>
+            <div>Users</div>
+            <div>Statistics</div>
+        </nav>
+    </div>
+    <script>
+        const url_string = window.location.href;
+        const url = new URL(url_string);
+        if (url.searchParams.get('token') == null) {
+            window.location.href = url_string.substring(0,url_string.lastIndexOf("/")+1).concat("login.html")
+        };
+
+        document.getElementById('logout-btn').addEventListener('click', function () {
+            const myHeaders = new Headers();
+
+            myHeaders.append("Authorization", url.searchParams.get('token'));
+
+            const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            redirect: "follow"
+            };
+
+            fetch("http://localhost:3000/logout", requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+                console.log(result);
+                window.location.href = url_string.substring(0,url_string.lastIndexOf("/")+1).concat("login.html")
+            })
+            .catch((error) => console.error(error));
+        });
+    </script>
+</body>
+</html>
