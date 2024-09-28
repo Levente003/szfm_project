@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    border: 5px solid black;
 }
 
 .login {
@@ -23,10 +22,4 @@ form > div {
 h1 {
     display: inline-block;
     text-align: center;
-}
-/*only for pattern testing*//*TODO: remove after testing*/
-input:valid {
-    color: goldenrod;
-    font-weight: bolder;
-    /*background-color: aqua;*/
 }
