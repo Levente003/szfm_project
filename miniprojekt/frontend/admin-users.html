@@ -131,13 +131,48 @@
                     c5.innerText = "Edit"
                     c6.innerText = "Delete"
 
+                    c5.addEventListener('click', function() {
+                        const myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/json");
+                        myHeaders.append("Authorization", token);
+                        
+                        let isAdmin = confirm("Is Admin: (Press OK/Confirm if it is / Press Cancel/Mégsem if no)");
+                        let name = prompt("New Name: ");
+                        let email = prompt("New Email: ");
+                        let password = prompt("New Password: ");
+                        
+
+                        const raw = JSON.stringify({
+                        "userID": users[i]['user_ID'],
+                        "email": email,
+                        "password": password,
+                        "name": name,
+                        "isAdmin": isAdmin
+                        });
+
+                        const requestOptions = {
+                        method: "POST",
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: "follow"
+                        };
+
+                        fetch("http://localhost:3000/updateUser", requestOptions)
+                        .then((response) => response.text())
+                        .then((result) => {
+                            console.log(result);
+                            window.location.href = window.location.href;
+                        })
+                        .catch((error) => console.error(error));
+                    });
+
                     c6.addEventListener('click', function() {
                         const myHeaders = new Headers();
                         myHeaders.append("Content-Type", "application/json");
                         myHeaders.append("Authorization", token);
 
                         const raw = JSON.stringify({
-                        "userID": c1.innerText
+                        "userID": users[i]['user_ID']
                         });
 
                         const requestOptions = {
