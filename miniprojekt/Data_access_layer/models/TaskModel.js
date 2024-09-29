@@ -27,7 +27,7 @@ const Task = sequelize.define('Task', {
     },
     assigned_user_ID: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
             model: 'Users', // Reference the User model
             key: 'user_ID', // Foreign key field in User
