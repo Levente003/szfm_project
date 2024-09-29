@@ -27,23 +27,11 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Assigned to</th>
-                    <th>Created by</th>
                     <th>Creation Date</th>
                     <th>Due Date</th>
                     <th>Completed</th>
                     <th></th>
                     <th></th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Edit</td>
-                    <td>Delete</td>
                 </tr>
             </table>
         </div>
@@ -118,14 +106,75 @@
             .then((response) => response.text())
             .then((result) => {
                 console.log(result);
+                window.location.href = window.location.href;
             })
             .catch((error) => console.error(error));
         });
 
-        fetch("http://localhost:3000/getAllTasks", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(JSON.parse(result)))
-        .catch((error) => console.error(error));
+        fillListOfTasks();
+        function fillListOfTasks() {
+            fetch("http://localhost:3000/getAllTasks", requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+                console.log(result);
+                return JSON.parse(result)['tasks'];
+            })
+            .then(tasks => {
+                table = document.getElementById('list-of-tasks');
+
+                for (let i in tasks) {
+
+                    let row = table.insertRow(-1);
+                    console.log(tasks[i]);
+                    
+
+                    let c1 = row.insertCell(0);
+                    let c2 = row.insertCell(1);
+                    let c3 = row.insertCell(2);
+                    let c4 = row.insertCell(3);
+                    let c5 = row.insertCell(4);
+                    let c6 = row.insertCell(5);
+                    let c7 = row.insertCell(6);
+                    let c8 = row.insertCell(7);
+
+                    c1.innerText = tasks[i]['ID'];
+                    c2.innerText = tasks[i]['name'];
+                    c3.innerText = tasks[i]['assigned_user_ID'];
+                    c4.innerText = tasks[i]['createdAt'];
+                    c5.innerText = tasks[i]['deadline'];
+                    c6.innerText = tasks[i]['completion_time'] == null;
+                    c7.innerText = "Edit"
+                    c8.innerText = "Delete"
+
+                    c8.addEventListener('click', function() {
+                        const myHeaders = new Headers();
+                        myHeaders.append("Content-Type", "application/json");
+                        myHeaders.append("Authorization", token);
+
+                        const raw = JSON.stringify({
+                        "taskID": tasks[i]['ID']
+                        });
+
+                        const requestOptions = {
+                        method: "DELETE",
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: "follow"
+                        };
+
+                        fetch("http://localhost:3000/deleteTask", requestOptions)
+                        .then((response) => response.text())
+                        .then((result) => {
+                            console.log(result);
+                            window.location.href = window.location.href;
+                        })
+                        .catch((error) => console.error(error));
+                        
+                    });
+                }
+            })
+            .catch((error) => console.error(error));
+        };
 
         document.getElementById('logout-btn').addEventListener('click', function () {
             const myHeaders = new Headers();
