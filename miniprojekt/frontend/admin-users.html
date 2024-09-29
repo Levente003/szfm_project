@@ -16,28 +16,22 @@
     </div>
     <div class="nav-plus-content">
         <nav class="flex-container-col">
-            <div id="tasks-btn" class="current-page">Tasks</div>
-            <div id="users-btn">Users</div>
+            <div id="tasks-btn">Tasks</div>
+            <div id="users-btn" class="current-page">Users</div>
             <div id="stats-btn">Statistics</div>
         </nav>
         <div>
-            <input id="add-task-btn" type="button" value="Add Task">
-            <table class="list-of-tasks">
+            <input id="add-user-btn" type="button" value="Add User">
+            <table class="list-of-users">
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Assigned to</th>
-                    <th>Created by</th>
-                    <th>Creation Date</th>
-                    <th>Due Date</th>
-                    <th>Completed</th>
+                    <th>Email</th>
+                    <th>Is Admin</th>
                     <th></th>
                     <th></th>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -78,7 +72,7 @@
         })
         .catch((error) => console.error(error));
 
-        fetch("http://localhost:3000/getAllTasks", requestOptions)
+        fetch("http://localhost:3000/getAllUsers", requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
@@ -103,9 +97,10 @@
             .catch((error) => console.error(error));
         });
 
-        document.getElementById('users-btn').addEventListener('click', function () {
-            window.location.href = url_string.substring(0,url_string.lastIndexOf("/")+1).concat("admin-users.html").concat("?token=",token);
+        document.getElementById('tasks-btn').addEventListener('click', function () {
+            window.location.href = url_string.substring(0,url_string.lastIndexOf("/")+1).concat("admin-tasks.html").concat("?token=",token);
         });
+        
     </script>
 </body>
 </html>

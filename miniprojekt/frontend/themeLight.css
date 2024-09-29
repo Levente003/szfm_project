@@ -13,3 +13,8 @@ input {
 div > nav.flex-container-col {
     background-color: lightgray;
 }
+
+.current-page {
+    color: darkred;
+    font-weight: bold;
+}
