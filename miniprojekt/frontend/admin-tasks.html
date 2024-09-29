@@ -10,15 +10,15 @@
 <body>
     <div class="flex-container-row">
         <h1>Task Tracker</h1>
-        <div>Logged in as: Administrator</div>
+        <div id="userText">Logged in as: Administrator</div>
         <div></div>
         <div id="logout-btn">Logout</div>
     </div>
     <div>
         <nav class="flex-container-col">
-            <div class="current-page">Tasks</div>
-            <div>Users</div>
-            <div>Statistics</div>
+            <div id="tasks-btn" class="current-page">Tasks</div>
+            <div id="users-btn">Users</div>
+            <div id="stats-btn">Statistics</div>
         </nav>
     </div>
     <script>
@@ -27,6 +27,8 @@
         if (url.searchParams.get('token') == null) {
             window.location.href = url_string.substring(0,url_string.lastIndexOf("/")+1).concat("login.html")
         };
+
+
 
         document.getElementById('logout-btn').addEventListener('click', function () {
             const myHeaders = new Headers();
