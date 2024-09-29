@@ -64,35 +64,77 @@
         })
         .catch((error) => console.error(error));
 
-        fetch("http://localhost:3000/getAllUsers", requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
-            console.log(result);
-            return JSON.parse(result)['users'];
-        })
-        .then(users => {
-            table = document.getElementById('list-of-users');
-            for (let i in users) {
-                let row = table.insertRow(-1);
-                console.log(users[i]);
+
+        document.getElementById('add-user-btn').addEventListener('click', function () {
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append("Authorization", token);
+
+            let isAdmin = confirm("Is Admin: (Press OK/Confirm if it is / Press Cancel/Mégsem if no)");
+            let name = prompt("Name: ");
+            let email = prompt("Email: ");
+            let password = prompt("Password: ");
+            
+            const raw = JSON.stringify({
+                "password": password,
+                "email": email,
+                "name": name,
+                "isAdmin": isAdmin
+            });
+
+            const requestOptions = {
+                method: "PUT",
+                headers: myHeaders,
+                body: raw,
+                redirect: "follow"
+            };
+
+            fetch("http://localhost:3000/createUser", requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+                console.log(result);
+                window.location.href = window.location.href;
+            })
+            .catch((error) => console.error(error));
+        });
+
+        fillListOfUsers();
+        function fillListOfUsers() {
+            fetch("http://localhost:3000/getAllUsers", requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+                console.log(result);
+                return JSON.parse(result)['users'];
+            })
+            .then(users => {
+                table = document.getElementById('list-of-users');
+                
                 
 
-                let c1 = row.insertCell(0);
-                let c2 = row.insertCell(1);
-                let c3 = row.insertCell(2);
-                let c4 = row.insertCell(3);
-                let c5 = row.insertCell(4);
-                let c6 = row.insertCell(5);
+                for (let i in users) {
 
-                c1.innerText = users[i]['user_ID']
-                c2.innerText = users[i]['name']
-                c3.innerText = users[i]['email']
-                c4.innerText = users[i]['admin']
-                c5.innerText = "Edit"
-                c6.innerText = "Delete"
-            }
-        })
-        .catch((error) => console.error(error));
+                    let row = table.insertRow(-1);
+                    console.log(users[i]);
+                    
+
+                    let c1 = row.insertCell(0);
+                    let c2 = row.insertCell(1);
+                    let c3 = row.insertCell(2);
+                    let c4 = row.insertCell(3);
+                    let c5 = row.insertCell(4);
+                    let c6 = row.insertCell(5);
+
+                    c1.innerText = users[i]['user_ID']
+                    c2.innerText = users[i]['name']
+                    c3.innerText = users[i]['email']
+                    c4.innerText = users[i]['admin']
+                    c5.innerText = "Edit"
+                    c6.innerText = "Delete"
+                }
+            })
+            .catch((error) => console.error(error));
+        };
+        
 
         document.getElementById('logout-btn').addEventListener('click', function () {
             const myHeaders = new Headers();
