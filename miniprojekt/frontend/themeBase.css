@@ -30,6 +30,10 @@
 .nav-plus-content {
     min-height: 50vh;
 }
+
+.nav-plus-content > * {
+    display: inline-block;
+}
 /*could not figure out how to make its height bigger*/
 /*.nav-plus-content > .flex-container-col{
     
