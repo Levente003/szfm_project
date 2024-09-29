@@ -159,6 +159,10 @@
         document.getElementById('tasks-btn').addEventListener('click', function () {
             window.location.href = url_string.substring(0,url_string.lastIndexOf("/")+1).concat("admin-tasks.html").concat("?token=",token);
         });
+
+        document.getElementById('stats-btn').addEventListener('click', function () {
+            window.location.href = url_string.substring(0,url_string.lastIndexOf("/")+1).concat("admin-stats.html").concat("?token=",token);
+        });
         
     </script>
 </body>
