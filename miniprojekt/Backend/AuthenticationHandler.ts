@@ -18,6 +18,7 @@ export async function Login(req:Request, res: Response){
     }
     else if(user.password != password){
         res.status(401).send("Invalid password!");
+        return;
     }
 
     
