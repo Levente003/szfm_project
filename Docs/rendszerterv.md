@@ -28,7 +28,7 @@
 ![Rendszer architektúra modell](resources/system_architecture.png)
 
 ## Adatbázis terv
-![Absztrakt adatbázis terv](resources\domain_model.png)
+![Absztrakt adatbázis terv](resources/domain_model.png)
 
 ### Adatbázis modell
 
